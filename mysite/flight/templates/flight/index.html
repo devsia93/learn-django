@@ -1,0 +1,32 @@
+{% extends 'flight/base.html' %}
+
+{% block title %}
+Airports
+{% endblock title%}
+
+{% block body %}<h1>Airports:</h1>
+
+<form action="{% url 'flight:date_filter' %}" method="GET">
+    <label for="start_date">Start date:</label>
+    <input type="date" id="start_date" name="start_date">
+    <button type="submit">Submit</button>
+</form>
+
+{% for airport in airports%}
+{{ airport }}
+<p>Arrivals</p>
+<ul>
+    {% for flight in airport.get_arrivals %}
+
+        <a href="{% url 'flight:flight' flight.pk %}">{{ flight }}</a>
+
+    {% endfor flights %}
+</ul>
+
+{%endfor airports%}
+<form method="POST">
+    {% csrf_token %}
+    {{flight_form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+{% endblock body%}

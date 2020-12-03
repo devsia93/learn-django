@@ -1,0 +1,32 @@
+{% extends 'flight/base.html' %}
+
+{% block title %}
+Filter
+{% endblock title%}
+
+{% block body %}<h1>Date Filter:</h1>
+<form action="{% url 'flight:date_filter' %}" method="GET">
+    <label for="start_date">Start date:</label>
+    <input type="date" id="start_date" name="start_date">
+    <button type="submit">Submit</button>
+</form>
+
+{% if start_date %}
+
+<p>{{ start_date }}</p>
+
+<p>Arrivals</p>
+<ul>
+    {% for flight in d%}
+
+    <a href="{% url 'flight:flight' flight.pk %}">{{ flight }}</a>
+
+    {% endfor d %}
+</ul>
+{% else %}
+
+<p>No start date. Please insert.</p>
+
+{% endif %}
+
+{% endblock body%}
