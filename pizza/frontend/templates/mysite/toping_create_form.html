@@ -1,0 +1,11 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Creating Toping {% endblock title %} 
+
+{% block body %}
+    <form action="{% url 'toping_create_url' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" name="button">Create Toping</button>
+    </form>
+{% endblock body %}

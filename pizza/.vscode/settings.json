@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "venv/bin/python3",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.enabled": false,
+    // "python.linting.pylintPath": "/home/ivan/.local/bin/pylint",
+    // "python.linting.pylintEnabled": true,
+    // "python.linting.enabled": true,

@@ -1,0 +1,23 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Pizza {% endblock title %} 
+
+{% block body %}
+{% if request.user.is_authenticated and request.user.is_staff %}
+<br><br>
+<a href="{% url 'pizza_update_url' pizza.slug %}">Update Pizza</a>
+<a href="{% url 'pizza_delete_url' pizza.slug %}">Delete Pizza</a>
+<a href="{% url 'toping_create_url'%}">Create Toping</a>
+<br><br>
+{% endif %}
+
+<p>Title: {{ pizza.title}}</p>
+<p>Description: {{pizza.content}}</p>
+
+{% if pizza.toping %}
+<p>Topings: </p>
+{% endif %}
+{% for toping in pizza.topings.all %}
+<a href="{% url 'toping_detail_url' toping.slug %}">{{toping.title}}</a>
+{% endfor %}
+<p>Author: {{pizza.cook}}</p>
+
+{% endblock body %}

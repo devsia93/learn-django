@@ -1,0 +1,10 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Deleting Pizza {% endblock title %} 
+
+{% block body %}
+    <form action="{{pizza.get_delete_url}}" method="POST">
+    {% csrf_token %}
+    <h3>Are you sure want to delete <b>"{{pizza.title|title}}"</b> pizza?</h3>
+    <a href="{{pizza.get_absolute_url}}">Cancel</a>
+    <button type="submit">Delete</button>
+    </form>
+{% endblock body %}

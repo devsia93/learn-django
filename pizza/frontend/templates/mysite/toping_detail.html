@@ -1,0 +1,15 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Pizza {% endblock title %} 
+
+{% block body %}
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+<br><br>
+<a href="{% url 'toping_update_url' toping.slug %}">Update Toping</a>
+<a href="{% url 'toping_delete_url' toping.slug %}">Delete Toping</a>
+<br><br>
+{% endif %}
+
+<p>Title: {{ toping.title}}</p>
+<p>Description: {{toping.content}}</p>
+
+{% endblock body %}

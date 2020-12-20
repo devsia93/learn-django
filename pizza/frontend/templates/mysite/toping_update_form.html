@@ -1,0 +1,17 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Updating Toping {% endblock title %} 
+
+{% block body %}
+
+    <form action="{{toping.get_update_url}}" method="POST">
+        {% csrf_token %}
+
+        {% for field in form  %}
+            <div class="form-group">
+            {{field.label}}
+            {{field}}
+            </div>
+        {% endfor %}
+
+        <button type="submit">Update Toping</button>
+    </form>
+{% endblock body %}

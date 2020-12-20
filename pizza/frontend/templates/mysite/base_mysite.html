@@ -1,0 +1,15 @@
+{% load static %}
+
+<html>
+  <title>
+    {% block title %} {% endblock title %}
+  </title>
+  <body>
+    {% if user.is_authenticated %}
+    <span>Hello, {{ user.username }}. </span
+    ><a href="{% url 'users:logout' %}">Logout<span></span></a>
+    {% else %}
+    <a href="{% url 'users:index' %}">Login</a>
+    {% endif %} {% block body %} {% endblock body %}
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Deleting Toping {% endblock title %} 
+
+{% block body %}
+    <form action="{{toping.get_delete_url}}" method="POST">
+    {% csrf_token %}
+    <h3>Are you sure want to delete <b>"{{toping.title|title}}"</b> toping?</h3>
+    <a href="{{toping.get_absolute_url}}">Cancel</a>
+    <button type="submit">Delete</button>
+    </form>
+{% endblock body %}

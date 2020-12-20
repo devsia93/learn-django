@@ -1,0 +1,16 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Creating Pizza {% endblock title %} 
+
+{% block body %}
+    <form action="{% url 'pizza_create_url' %}" method="POST">
+        {% csrf_token %}
+
+        {% for field in form  %}
+            <div class="form-group">
+            {{field.label}}
+            {{field}}
+            </div>
+        {% endfor %}
+
+        <button type="submit" name="button">Create Pizza</button>
+    </form>
+{% endblock body %}

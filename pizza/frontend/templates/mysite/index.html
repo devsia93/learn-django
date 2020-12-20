@@ -1,0 +1,14 @@
+{% extends 'mysite/base_mysite.html' %} {% block title %} Pizzes {% endblock title %} 
+
+{% block body %}
+
+{% if request.user.is_authenticated and request.user.is_staff %}
+<p><a href="{% url 'pizza_create_url' %}">Create Pizza</a></p>
+<p><a href="{% url 'toping_create_url' %}">Create Toping</a></p>
+{% endif %}
+
+{% for pizza in pizzes %}
+<p><a href="{{ pizza.get_absolute_url }}">{{ pizza.title }}</a></p>
+{% endfor %}
+
+{% endblock body %} 
